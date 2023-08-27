@@ -9,24 +9,24 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Compile') {
             steps {
-                // Build the Java application using Maven
-                sh 'mvn clean package'
+                // Compile the Java source file
+                sh 'javac MyApp.java'
             }
         }
 
         stage('Test') {
             steps {
-                // Run unit tests
-                sh 'mvn test'
+                // Run any tests (if applicable)
+                sh 'java MyApp'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Deploy the application (this is a simplified example)
-                sh 'java -jar target/my-app.jar'
+                // Deploy the application (simplified example)
+                sh 'java MyApp'
             }
         }
     }
